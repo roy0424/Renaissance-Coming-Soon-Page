@@ -4,11 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>RENAISSANCE – Coming Soon</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --silver-dark: #b0b0b0;
+      --silver-light: #eaeaea;
+      --text-dark: #1a1a1a;
+      --text-muted: rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      background: linear-gradient(135deg, #c0c0c0, #f0f0f0);
+      padding: 0;
+      background: linear-gradient(135deg, var(--silver-dark), var(--silver-light));
       font-family: 'Inter', sans-serif;
       height: 100vh;
       display: flex;
@@ -16,39 +28,58 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      color: #111;
+      color: var(--text-dark);
+      overflow: hidden;
+    }
+
+    .fade-in {
+      animation: fadeInUp 1.8s ease-out both;
     }
 
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 4rem;
+      font-size: 4.5rem;
       font-weight: 700;
-      margin: 0.5em 0 0.2em 0;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      font-weight: 400;
-      font-style: italic;
-      color: #666666;
-      margin-bottom: 2em;
+      margin: 0;
       letter-spacing: 1px;
     }
 
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-muted);
+      margin: 1.2rem 0 3rem 0;
+      letter-spacing: 0.5px;
+    }
 
     h3 {
       font-size: 2rem;
       font-weight: 600;
-      margin-top: 0;
+      margin: 0;
     }
 
-    .fade-in {
-      animation: fadeIn 1.5s ease-in;
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.8rem;
+      }
+      h2 {
+        font-size: 1.1rem;
+      }
+      h3 {
+        font-size: 1.4rem;
+      }
     }
   </style>
 </head>
