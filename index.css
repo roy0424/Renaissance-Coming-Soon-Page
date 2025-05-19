@@ -1,77 +1,162 @@
-/* Pacifico 폰트 직접 삽입 (base64 방식) */
-@font-face {
-    font-family: 'Pacifico';
-    font-style: normal;
-    font-weight: 400;
-    src: url(data:font/ttf;charset=utf-8;base64,AAEAAAASAQAABAAgR0RFRrRCsIIAAACiAAAAYGNtYXACnQAFAAADHAAAAExnYXNwAAAAEAAAAMgAAAAIZ2x5Zk+E2ssAAADcAAABRGhlYWQb6Q0GAAAB3AAAADZoaGVhCHcI8AAAAgAAAAAkaG10eAOoAAAAAAJgAAAANGxvY2EBQAGcAAACeAAAAAhtYXhwAA4AKAAAAnwAAAAgbmFtZZIvbpwAAAKkAAABqnBvc3QAAwAAAAAFIAAAACAAAwPAAZAABQAAAUwBZgAAAVwBhgAAAF4CZAAAAZcCAA==) format('truetype');
+
+/* ===== General Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== Body and Background ===== */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #fff, #6b6b6b);
+  background-size: 100% 200%;
+  background-position: 0% 0%;
+  background-repeat: no-repeat;
+  animation: gradientMove 15s infinite;
+  color: #000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 0%;
   }
-  
-  /* 기본 배경과 폰트 설정 */
-  body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    background: linear-gradient(135deg, #e0e0e0, #868686, #5f5f5f);
-    background-size: 600% 600%;
-    animation: gradientShift 9s ease infinite;
-    font-family: 'Pacifico', cursive;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  50% {
+    background-position: 0% 100%;
   }
-  
-  @keyframes gradientShift {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
+  100% {
+    background-position: 0% 0%;
   }
-  
-  /* 중앙 정렬된 콘텐츠 */
+}
+
+/* ===== Container ===== */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8vw;
+  flex: 1;
+}
+
+.left-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+.tagline {
+  font-size: 3.0rem;
+  font-style: italic;
+  font-weight: 800;
+  margin-bottom: 0.7rem;
+  font-family: 'Times New Roman', serif;
+  color: #111;
+}
+
+.coming-soon {
+  font-size: 6.2rem;
+  font-weight: 800;
+  font-style: normal;
+  font-family: 'Arial Black', sans-serif;
+  color: #000;
+  margin-top: 0.2rem;
+}
+
+.right-logo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.alld-logo {
+  max-width: 90%;
+  height: auto;
+}
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 0.3rem 1rem 0.8rem;
+  line-height: 1.6;
+}
+
+.footer-line {
+  width: 80%;
+  margin: 0 auto 1.5rem;
+  height: 1px;
+  background: #000000;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.footer-info p {
+  margin: 0;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.footer-info p:last-child {
+  margin-bottom: 1rem;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
   .container {
-    text-align: center;
-    width: 100%;
-    max-width: 900px;
-    padding: 10vh 2rem;
-    box-sizing: border-box;
-    display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-  }
-  
-  /* RENAISSANCE - Times New Roman */
-  .title {
-    font-family: 'Times New Roman', serif;
-    font-size: clamp(2rem, 8vw, 7rem);
-    margin-bottom: 1rem;
-    font-weight: bold;
     text-align: center;
+    padding: 0 4vw;
   }
-  
-  /* "Our Fashion to Art" - Pacifico */
-  .subtitle {
-    font-family: 'Pacifico', cursive;
-    font-size: clamp(1rem, 3vw, 1.8rem);
-    margin-bottom: 3rem;
-    color: #222;
-    text-align: center;
+
+  .right-logo {
+    margin-top: 2rem;
   }
-  
-  /* Coming Soon - Pacifico */
+
   .coming-soon {
-    font-size: clamp(2rem, 5vw, 4rem);
+    font-size: 3.5rem;
+  }
+
+  .tagline {
+    font-size: 1.8rem;
+  }
+
+  .alld-logo {
+    max-width: 70%;
+  }
+
+  .footer-info {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    gap: 0.6rem;
+    align-items: center;
+  }
+
+  .footer-info p {
+    white-space: normal;
     text-align: center;
   }
-  
-  /* 반응형 처리 */
-  @media (max-width: 768px) {
-    .container {
-      padding: 5vh 1rem;
-    }
+
+  .footer-line {
+    width: 90%;
   }
+}
